@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Number Fact</title>
+</head>
+<body>
+  <h1>Random Number Fact</h1>
+  <p id="fact">Loading fact...</p>
+  <button onclick="getRandomFact()">Get New Fact</button>
+
+  <script>
+    async function getRandomFact() {
+      const response = await fetch('http://numbersapi.com/random');
+      const fact = await response.text();
+      document.getElementById('fact').textContent = fact;
+    }
+
+    // Fetch a fact immediately when page loads
+    getRandomFact();
+  </script>
+</body>
+</html>
